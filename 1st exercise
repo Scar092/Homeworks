@@ -32,7 +32,7 @@ while True:
      with open('ready.pkl', 'wb') as f:
           pickle.dump (READY_TASKS, f)
 
-     #checking the repeates
+     #checking the repeats
      if READY_TASKS.count(TASK) != 0:
           print ('Repeated value, try again!')
           break
