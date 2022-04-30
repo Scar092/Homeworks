@@ -1,0 +1,21 @@
+"""This file includes function to generate
+various variants of first exercise, that is
+connected with... """
+
+import random
+import pickle #first create a pickle file in main directory
+
+#Creating the list with various types of tasks
+TYPES_OF_TASK = ['way_to_way','any_random',
+'or_even_more_random', 'and_so_on']
+
+#Main body of the program
+while True:
+     NUMBER_OF_TYPE = random.randint(0, len(TYPES_OF_TASK))
+     TYPE = TYPES_OF_TASK [NUMBER_OF_TYPE]
+     NUMBER_OF_TASK = random.randint(1, 10)
+     
+     #The last five ready tasks couldn't repeat
+     READY_TASKS = []
+     with open('ready.pkl', 'rb') as f:
+          READY_TASKS = pickle.load (f)
