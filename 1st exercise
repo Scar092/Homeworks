@@ -14,8 +14,22 @@ while True:
      NUMBER_OF_TYPE = random.randint(0, len(TYPES_OF_TASK))
      TYPE = TYPES_OF_TASK [NUMBER_OF_TYPE]
      NUMBER_OF_TASK = random.randint(1, 10)
+     TASK = [TYPE, NUMBER_OF_TASK]
      
      #The last five ready tasks couldn't repeat
      READY_TASKS = []
      with open('ready.pkl', 'rb') as f:
           READY_TASKS = pickle.load (f)
+     READY_TASKS.append(TASK)
+
+     if len(READY_TASKS) > 5:
+          READY_TASKS.pop(0)
+
+     with open('ready.pkl', 'wb') as f:
+          pickle.save (READY_TASKS, f)
+
+     if READY_TASKS.count(TASK) != 0:
+          break
+
+     print (TASK)
+     break
